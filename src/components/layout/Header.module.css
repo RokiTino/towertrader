@@ -1,0 +1,126 @@
+.header {
+    background-color: #333333;
+    background: linear-gradient(145deg, #333333, #444444);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    position: fixed;
+    width: calc(100% + 40px);
+    top: 0;
+    left: -7px;
+    z-index: 50;
+    transition: all 0.3s ease-in-out;
+    padding-right: 20px;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.innerWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+}
+
+.logoSection {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logoWrapper {
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+.logoImage {
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.logoImage:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(251, 146, 60, 0.7);
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fb923c;
+    display: none;
+    animation: pulse 2s infinite;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@media (min-width: 768px) {
+    .title {
+        display: block;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    margin-right: 25px;
+}
+
+.link {
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #fdba74;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.profileLink {
+    margin-right: 2rem; /* <-- Only margin, no padding! */
+}
+
+.link:hover {
+    background-color: #4a4a4a;
+    color: #fb923c;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #fb923c;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.activeLink {
+    background-color: #374151;
+    color: #fb923c;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+}
