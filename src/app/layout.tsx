@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,7 +43,7 @@ export default function RootLayout({
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="theme-color" content="#4f46e5" />
       </head>
-      <body className={`${inter.className} bg-[#222222]`}>
+      <body className={inter.className}>
         <Header />
         <main>{children}</main>
       </body>

@@ -1,0 +1,208 @@
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* General page styles */
+body {
+  background-color: white; /* Dark background color */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #ffffff;
+}
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Auth container specific styles */
+.auth-container {
+  background: rgba(192, 192, 192, 0.85); /* Dark frosted glass effect */
+  backdrop-filter: blur(15px); /* Blurring the background */
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 420px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hover effect on auth container */
+.auth-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Heading styles */
+h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: darkgreen; /* Soft red-orange color for headings */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Button Styles */
+.button {
+  background: darkgreen; /* Soft red-orange */
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.button:hover {
+  background: rgb(2, 162, 2); /* Darker red-orange on hover */
+  transform: scale(1.05);
+}
+
+.button:focus {
+  outline: none;
+}
+
+/* Text link for sign up/sign in toggle */
+.toggle-link {
+  text-align: center;
+  display: block;
+  margin-top: 15px;
+}
+
+.text-link {
+  color: #ffffff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.smh{
+  margin-top: 0.5rem;
+}
+.smh:hover {
+  color: rgb(145, 135, 135);
+  cursor: pointer;
+}
+
+/* Input fields (both username and password) */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  height: 50px;
+  padding: 16px; /* Equal padding for both inputs */
+  margin-bottom: 20px;
+  border-radius: 10px; /* Same rounded corners for both fields */
+  background-color: rgba(255, 255, 255, 0.15); /* Slight transparency for the input background */
+  color: #fff;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type="email"],
+input[type="email"] {
+  width: 100%;
+  padding: 16px; /* Equal padding for both inputs */
+  margin-bottom: 20px;
+  height: 50px;
+  border-radius: 10px; /* Same rounded corners for both fields */ 
+  background-color: rgba(255, 255, 255, 0.15); /* Slight transparency for the input background */
+  color: #fff;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Focus styles for inputs */
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: darkgreen; /* Red-orange border on focus */
+  box-shadow: 0 0 10px rgba(255, 111, 97, 0.5); /* Glow effect */
+  outline: none;
+}
+
+/* Hover effects for inputs */
+input[type="text"]:hover,
+input[type="password"]:hover {
+  border-color: rgb(2, 162, 2); /* Light red-orange border on hover */
+}
+
+/* Adjust the height to make inputs visually the same */
+input[type="text"],
+input[type="password"] {
+  height: 50px; /* Uniform height for both fields */
+  font-size: 1.1rem; /* Consistent font size */
+}
+
+/* Subtle animation for input focus */
+input[type="email"],
+input[type="email"] {
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+input[type="email"]:focus,
+input[type="email"]:focus {
+  border-color: darkgreen; /* Red-orange border on focus */
+  box-shadow: 0 0 10px rgba(255, 111, 97, 0.5); /* Glow effect */
+  outline: none;
+}
+
+/* Hover effects for inputs */
+input[type="email"]:hover,
+input[type="email"]:hover {
+  border-color: rgb(2, 162, 2); /* Light red-orange border on hover */
+}
+ 
+/* Adjust the height to make inputs visually the same */
+input[type="email"],
+input[type="email"] {
+  height: 50px; /* Uniform height for both fields */
+  font-size: 1.1rem; /* Consistent font size */
+}
+
+/* Subtle animation for input focus */
+input[type="email"],
+input[type="email"] {
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.errorHandlingText {
+  color: red;
+}
+.smht{
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  border-color: rgb(2, 162, 2); /* Updated orange border on focus */
+  box-shadow: 0 0 10px rgba(253, 186, 116, 0.5); /* Glow effect */
+}
+
+/* Hover effects for inputs */
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="email"]:hover {
+  border-color: rgb(2, 162, 2); /* Updated orange border on hover */
+}
+.placeholder{
+  width: 100%;
+}

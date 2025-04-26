@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { useEffect } from "react";
 import { registerServiceWorker } from "@/utils/registerServiceWorker";
+import Header from "@/components/layout/Header";
 
 // Listing data i listing cards vo components
 import { mockListings } from "@/components/Listings/Listing_data";
@@ -14,20 +15,26 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-[#222222]">
-      <div className="w-full max-w-md px-4">
-        <div className="bg-white p-8 rounded-lg shadow-lg">
-          <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">TOWER TRADER</h1>
-          
-          <nav className="flex justify-center space-x-6 mb-8">
-            <Link href="/" className="text-indigo-600 hover:text-indigo-800 font-medium">
-              Home
-            </Link>
-            <Link href="/profile" className="text-gray-600 hover:text-gray-800 font-medium">
-              Profile
-            </Link>
-          </nav>
-
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-indigo-50 p-8 pt-24">
+      <div className="max-w-4xl w-full space-y-8">
+     
+      <Header />
+        <div className="flex flex-col items-center">
+          <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+            <div className="space-y-4">
+              <Link
+                href="/auth"
+                className="block w-full text-center py-3 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 transition-all duration-200"
+              >
+                Start Investing
+              </Link>
+              <Link
+                href="/auth"
+                className="block w-full text-center py-3 px-4 border border-indigo-600 text-indigo-600 rounded-md hover:bg-indigo-50 transition-colors"
+              >
+                Sign In
+              </Link>
+            </div>
 
           {/*Rendering listings from render listing function*/}
           <h2 className="text-2xl font-bold mb-6 text-center">Featured Listings</h2>
