@@ -4,6 +4,8 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import { registerServiceWorker } from "@/utils/registerServiceWorker";
+
+// Listing data i listing cards vo components
 import { mockListings } from "@/components/Listings/Listing_data";
 import RenderListings from "@/components/Listings/RenderListings";
 
