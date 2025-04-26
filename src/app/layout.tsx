@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Tower Trader",
   description: "Your one-stop platform for trading and investment opportunities",
   manifest: "/manifest.json",
-  themeColor: "#4f46e5",
+  themeColor: "#222222",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
   appleWebApp: {
     capable: true,
@@ -44,7 +44,7 @@ export default function RootLayout({
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="theme-color" content="#4f46e5" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-[#222222]`}>
         <Header />
         <main>{children}</main>
       </body>
