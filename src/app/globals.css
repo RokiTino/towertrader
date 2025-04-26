@@ -4,7 +4,9 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
+  --background-rgb: 255, 255, 255; /* white background */
+  --background: #ffffff; /* white for custom variables too */
+  --foreground: #000000; /* black text */
 }
 
 body {
@@ -24,7 +26,9 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background-rgb: 255, 255, 255; /* still white in dark mode */
+    --foreground-rgb: 0, 0, 0; /* still black text in dark mode */
+    --background: #ffffff; /* force background to stay white */
+    --foreground: #000000; /* force text to stay black */
   }
 }

@@ -1,7 +1,7 @@
 .header {
-    background-color: #333333;
-    background: linear-gradient(145deg, #333333, #444444);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    background-color: #ffffff; /* white background */
+    background: linear-gradient(145deg, #ffffff, #e8f5e9); /* light greenish white gradient */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* softer shadow */
     position: fixed;
     width: calc(100% + 40px);
     top: 0;
@@ -44,13 +44,13 @@
 
 .logoImage:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(251, 146, 60, 0.7);
+    box-shadow: 0 0 10px rgba(0, 200, 83, 0.7); /* green glow */
 }
 
 .title {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #fb923c;
+    color: #2e7d32; /* dark green */
     display: none;
     animation: pulse 2s infinite;
     text-transform: uppercase;
@@ -85,7 +85,7 @@
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0.1em;
-    color: #fdba74;
+    color: #388e3c; /* medium green */
     transition: all 0.3s ease;
     text-decoration: none;
     background-color: transparent;
@@ -94,13 +94,13 @@
 }
 
 .profileLink {
-    margin-right: 2rem; /* <-- Only margin, no padding! */
+    margin-right: 2rem; /* Only margin, no padding! */
 }
 
 .link:hover {
-    background-color: #4a4a4a;
-    color: #fb923c;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    background-color: #c8e6c9; /* very light green background */
+    color: #1b5e20; /* darker green on hover */
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 .link::after {
@@ -110,7 +110,7 @@
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: #fb923c;
+    background-color: #2e7d32; /* dark green underline */
     transition: width 0.3s ease, left 0.3s ease;
 }
 
@@ -120,7 +120,7 @@
 }
 
 .activeLink {
-    background-color: #374151;
-    color: #fb923c;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+    background-color: #a5d6a7; /* light green background for active */
+    color: #1b5e20; /* darker green text */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
