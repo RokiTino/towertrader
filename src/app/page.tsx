@@ -4,6 +4,10 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { registerServiceWorker } from "@/utils/registerServiceWorker";
 
+// Listing data i listing cards vo components
+import { mockListings } from "@/components/Listings/Listing_data";
+import RenderListings from "@/components/Listings/RenderListings";
+
 export default function Home() {
   useEffect(() => {
     registerServiceWorker();
@@ -23,6 +27,14 @@ export default function Home() {
               Profile
             </Link>
           </nav>
+
+
+          {/*Rendering listings from render listing function*/}
+          <h2 className="text-2xl font-bold mb-6 text-center">Featured Listings</h2>
+          <RenderListings listings={mockListings} />
+        </div>
+
+        <div className="flex flex-col items-center">
 
           <div className="space-y-4">
             <Link
