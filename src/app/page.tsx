@@ -1,9 +1,11 @@
 'use client';
 
-import Image from "next/image";
+
 import Link from "next/link";
 import { useEffect } from "react";
 import { registerServiceWorker } from "@/utils/registerServiceWorker";
+import { mockListings } from "@/components/Listings/Listing_data";
+import RenderListings from "@/components/Listings/RenderListings";
 
 export default function Home() {
   useEffect(() => {
@@ -13,6 +15,13 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-gray-50 pt-24">
       <div className="max-w-4xl w-full space-y-8">
+        <div>
+
+          {/*Rendering listings from render listing function*/}
+          <h2 className="text-2xl font-bold mb-6 text-center">Featured Listings</h2>
+          <RenderListings listings={mockListings} />
+        </div>
+
         <div className="flex flex-col items-center">
 
           <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
