@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { registerServiceWorker } from "@/utils/registerServiceWorker";
+import Header from "@/components/layout/Header";
 
 export default function Home() {
   useEffect(() => {
@@ -11,15 +11,16 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-gray-50 pt-24">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-indigo-50 p-8 pt-24">
       <div className="max-w-4xl w-full space-y-8">
+     
+      <Header />
         <div className="flex flex-col items-center">
-
           <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
             <div className="space-y-4">
               <Link
                 href="/auth"
-                className="block w-full text-center py-3 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+                className="block w-full text-center py-3 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 transition-all duration-200"
               >
                 Start Investing
               </Link>
