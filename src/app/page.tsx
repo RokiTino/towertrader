@@ -7,7 +7,6 @@ import Header from "@/components/layout/Header";
 // Listing data i listing cards vo components
 import { mockListings } from "@/components/Listings/Listing_data";
 import RenderListings from "@/components/Listings/RenderListings";
-import Link from "next/link";
 
 export default function Home() {
   useEffect(() => {
@@ -19,7 +18,8 @@ export default function Home() {
    
      
       <Header />
-
+      <div>
+        <div>
           {/*Rendering listings from render listing function*/}
           <h2 className="text-2xl font-bold mb-6 text-center featured"></h2>
           <RenderListings listings={mockListings} />
