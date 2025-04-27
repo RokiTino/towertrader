@@ -10,6 +10,7 @@ export default function Header() {
 
     return (
         <header className={styles.header}>
+            
             <div className={styles.container}>
                 <div className={styles.innerWrapper}>
                     {/* Logo Section */}
@@ -37,9 +38,15 @@ export default function Header() {
                         </Link>
                         <Link
                             href="/profile"
-                            className={`${styles.link} ${styles.profileLink} ${pathname === "/profile" ? styles.activeLink : ""}`}
+                            className={`${styles.link} ${styles.link} ${pathname === "/profile" ? styles.activeLink : ""}`}
                         >
                             Profile
+                        </Link>
+                        <Link
+                            href="/auth"
+                            className={`${styles.link} ${styles.link} ${pathname === "/profile" ? styles.activeLink : ""}`}
+                        >
+                            Sign In
                         </Link>
                     </nav>
                 </div>
