@@ -19,22 +19,6 @@ export default function Home() {
    
      
       <Header />
-        <div className="flex flex-col items-center">
-          <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-            <div className="space-y-4 mt-20">
-              <Link
-                href="/auth"
-                className="block w-full text-center py-3 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 transition-all duration-200"
-              >
-                Start Investing
-              </Link>
-              <Link
-                href="/auth"
-                className="block w-full text-center py-3 px-4 border border-indigo-600 text-indigo-600 rounded-md hover:bg-indigo-50 transition-colors"
-              >
-                Sign In
-              </Link>
-            </div>
 
           {/*Rendering listings from render listing function*/}
           <h2 className="text-2xl font-bold mb-6 text-center featured"></h2>
