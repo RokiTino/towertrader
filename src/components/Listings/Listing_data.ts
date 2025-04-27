@@ -1,56 +1,58 @@
+import LakeHouse from '/LakeHouse.jpg'
+
 export const mockListings = [
   {
     id: 1,
     title: "Luxury Apartment in Downtown",
     price: "$1,200,000",
-    image: "/images/apartment1.jpg",
+    image: '', // Imported image for Luxury Apartment
   },
   {
     id: 2,
     title: "Cozy Suburban Home",
     price: "$850,000",
-    image: "/images/home1.jpg",
+    image: '/CozyHome.web', // Imported image for Cozy Suburban Home
   },
   {
     id: 3,
     title: "Modern Condo with City View",
     price: "$950,000",
-    image: "/images/condo1.jpg",
+    image: "/cozyHomeUrban.jpg", // Imported image for Modern Condo
   },
   {
     id: 4,
     title: "Spacious Country House",
     price: "$1,500,000",
-    image: "/images/house1.jpg",
+    image: "/SpaciousCityHouse.jpg", // Imported image for Spacious Country House
   },
   {
     id: 5,
     title: "Beachfront Villa",
     price: "$2,300,000",
-    image: "/images/villa1.jpg",
+    image: "/BeachFrontVilla.jpg", // Imported image for Beachfront Villa
   },
   {
     id: 6,
     title: "Penthouse Suite",
     price: "$3,000,000",
-    image: "/images/penthouse1.jpg",
+    image: "/PenthouseVilla.jpg", // Imported image for Penthouse Suite
   },
   {
     id: 7,
     title: "Rustic Cabin Retreat",
     price: "$600,000",
-    image: "/images/cabin1.jpg",
+    image: "/RusticCabin.jpg", // Imported image for Rustic Cabin Retreat
   },
   {
     id: 8,
     title: "Urban Loft Studio",
     price: "$780,000",
-    image: "/images/loft1.jpg",
+    image: "/UrbanLoft.jpg", // Imported image for Urban Loft Studio
   },
   {
     id: 9,
     title: "Charming Lake House",
     price: "$1,100,000",
-    image: "/images/lakehouse1.jpg",
+    image: "/LakeHouse.jpg", // Imported image for Charming Lake House
   },
 ];

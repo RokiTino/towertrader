@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-indigo-50 p-8 pt-24">
-      <div className="max-w-4xl w-full space-y-8">
+   
      
       <Header />
         <div className="flex flex-col items-center">

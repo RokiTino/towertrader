@@ -18,7 +18,7 @@ export default function RenderListings({ listings }: RenderListingsProps) {
       {listings.map((listing) => (
         <div key={listing.id} className={styles.listingCard}>
           <Image
-            src={listing.image}
+            src={listing.image.toString() === '' ? '/download.png' : listing.image}
             alt={listing.title}
             width={300}
             height={200}
