@@ -1,4 +1,4 @@
-import Header from "@/components/layout/Header";
+//import Header from "@/components/layout/Header";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -46,7 +46,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body className={inter.className}>
-        <div><Header /></div>
+
+        <div style={{ height: "80px", minHeight: "80px" }}><Header /></div>
         <main>{children}</main>
       </body>
     </html>

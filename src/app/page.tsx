@@ -7,7 +7,6 @@ import Header from "@/components/layout/Header";
 // Listing data i listing cards vo components
 import { mockListings } from "@/components/Listings/Listing_data";
 import RenderListings from "@/components/Listings/RenderListings";
-import Link from "../../node_modules/next/link";
 
 export default function Home() {
   useEffect(() => {
