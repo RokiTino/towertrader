@@ -16,6 +16,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+.featured{
+  margin-top: 20px;
+}
 
 @theme inline {
   --color-background: var(--background);
