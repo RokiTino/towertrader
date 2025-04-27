@@ -7,7 +7,6 @@ import Header from "@/components/layout/Header";
 // Listing data i listing cards vo components
 import { mockListings } from "@/components/Listings/Listing_data";
 import RenderListings from "@/components/Listings/RenderListings";
-import Link from "../../node_modules/next/link";
 
 export default function Home() {
   useEffect(() => {
@@ -16,6 +15,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-indigo-50 p-8 pt-24">
+      <div>
       <Header />
         <div className="flex flex-col items-center">
           <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
@@ -23,6 +23,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-6 text-center mt-20">Featured Listings</h2>
           <RenderListings listings={mockListings} />
         </div>
+      </div>
       </div>
     </main>
   );
