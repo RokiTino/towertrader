@@ -17,13 +17,15 @@ export default function RenderListings({ listings }: RenderListingsProps) {
     <div className={styles.gridContainer}>
       {listings.map((listing) => (
         <div key={listing.id} className={styles.listingCard}>
-          <Image
-            src={listing.image.toString() === '' ? '/download.png' : listing.image}
+          {
+              
+           <Image
+            src={listing.image } // Default image if none is provided
             alt={listing.title}
             width={300}
-            height={200}
+            height={300}
             className={styles.listingImage}
-          />
+          /> }
           <h3 className={styles.listingTitle}>{listing.title}</h3>
           <p className={styles.listingPrice}>{listing.price}</p>
 
