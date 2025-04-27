@@ -60,12 +60,12 @@
 }
 
 .login-button.google {
-    background-color: #4285F4;
+    background-color: white;
     color: white;
 }
 
 .login-button.google:hover {
-    background-color: #3367D6;
+    background-color: white;
 }
 
 .login-button.apple {
