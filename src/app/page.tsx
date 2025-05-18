@@ -14,16 +14,16 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-indigo-50 p-8 pt-24">
-      <div>
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-indigo-50 p-8 pt-32">
+   
+     
       <Header />
-        <div className="flex flex-col items-center">
-          <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <div>
+        <div>
           {/*Rendering listings from render listing function*/}
-          <h2 className="text-2xl font-bold mb-6 text-center mt-20">Featured Listings</h2>
+          <h2 className="text-2xl font-bold mb-6 text-center featured"></h2>
           <RenderListings listings={mockListings} />
         </div>
-      </div>
       </div>
     </main>
   );
