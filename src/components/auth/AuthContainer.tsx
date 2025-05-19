@@ -4,12 +4,14 @@ import { useState } from "react";
 import SignInForm from "./SignInForm";
 import SignUpForm from "./SignUpForm";
 import './auth-container.css'; // Import the fancy CSS file
+import router from "../../../node_modules/next/router";
 
 export default function AuthContainer() {
   const [isSignIn, setIsSignIn] = useState(true);
 
   return (
     <div className="min-h-screen flex items-center justify-center">
+      <button onClick={() => router.push('/src/app/page.tsx')}/>
       <div className="auth-container">
         <h2>{isSignIn ? "Sign in to your account" : "Create a new account"}</h2>
 

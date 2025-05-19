@@ -17,7 +17,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-indigo-50 p-8 pt-32">
    
      
-      <Header />
+   <div style={{ height: "80px", minHeight: "80px" }}><Header /></div>
       <div>
         <div>
           {/*Rendering listings from render listing function*/}

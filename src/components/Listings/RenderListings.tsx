@@ -1,4 +1,5 @@
 import Image from "next/image";
+import router from "../../../node_modules/next/router";
 import styles from "./RenderListings.module.css";
 
 interface Listing {
@@ -16,7 +17,9 @@ export default function RenderListings({ listings }: RenderListingsProps) {
   return (
     <div className={styles.gridContainer}>
       {listings.map((listing) => (
-        <div key={listing.id} className={styles.listingCard}>
+        <div onClick={() => {
+          
+        }} key={listing.id} className={styles.listingCard}>
           {
               
            <Image

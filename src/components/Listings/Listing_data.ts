@@ -1,4 +1,6 @@
-export const mockListings = [
+import { Viewport } from "../../../node_modules/next/dist/lib/metadata/types/metadata-interface";
+
+export const mockListings:  Viewport = [
   {
     id: 1,
     title: "Luxury Apartment in Downtown",

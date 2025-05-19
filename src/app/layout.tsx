@@ -45,11 +45,6 @@ export default function RootLayout({
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body className={inter.className}>
-
-
-        <div style={{ height: "80px", minHeight: "80px" }}><Header /></div>
-
-
         <main>{children}</main>
       </body>
     </html>
