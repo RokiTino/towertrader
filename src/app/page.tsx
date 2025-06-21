@@ -5,6 +5,7 @@ import PropertyCard from './components/PropertCard';
 import UrbanLoft from '../../public/images/UrbanLoft.jpg';
 import BeachFrontVilla from '../../public/images/BeachFrontVilla.jpg'
 import NoImage from '../../public/images/download.png'
+
 export default function Home() {
   const properties = [
     {
@@ -24,7 +25,7 @@ export default function Home() {
       title: "City Penthouse",
       price: "3.200.000$",
       imageUrl: NoImage
-    }
+    },
   ];
 
   return (

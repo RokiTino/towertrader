@@ -1,13 +1,13 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/PropertyCard.module.css';
 
 interface PropertyCardProps {
-  id: string; // Added ID for routing
+  id: string;
   title: string;
   price: string | number;
-  imageUrl: string;
-  progress?: number; // Optional progress percentage (0-100)
+  imageUrl: StaticImageData | string;
+  progress?: number;
 }
 
 export default function PropertyCard({ 
@@ -15,7 +15,7 @@ export default function PropertyCard({
   title, 
   price, 
   imageUrl, 
-  progress = 50 // Default progress
+  progress = 50 
 }: PropertyCardProps) {
   return (
     <Link href={`/properties/${id}`} className={styles.propertyCardLink}>
@@ -32,7 +32,6 @@ export default function PropertyCard({
         <div className={styles.propertyDetails}>
           <h3>{title}</h3>
           
-          {/* Progress Bar */}
           <div className={styles.progressContainer}>
             <div 
               className={styles.progressBar}

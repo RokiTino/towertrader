@@ -1,14 +1,31 @@
-export default function PropertyDetails({
-  params
-}: {
-  params: { id: string }
-}) {
-  // In a real app, you'd fetch property data using the ID
+// app/properties/[id]/page.tsx
+import { Metadata } from 'next';
+
+type Props = {
+  params: {
+    id: string;
+  };
+};
+
+export async function generateStaticParams() {
+  return [
+    { id: '1' },
+    { id: '2' },
+    { id: '3' },
+  ];
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return {
+    title: `Property ${params.id}`,
+  };
+}
+
+export default function PropertyPage({ params }: Props) {
   return (
-    <div>
+    <main>
       <h1>Property Details</h1>
       <p>Property ID: {params.id}</p>
-      {/* Add your detailed property view here */}
-    </div>
+    </main>
   );
 }
