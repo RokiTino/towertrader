@@ -1,0 +1,26 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.authPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  flex: 1;
+}
+
+.brandTitle {
+  font-size: 2rem;
+  color: #ac8144;
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  color: #ac8144;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}

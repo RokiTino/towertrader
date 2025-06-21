@@ -1,0 +1,36 @@
+/* Add these new styles */
+.propertyCardLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.progressContainer {
+  width: 100%;
+  height: 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: #ac8144; 
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Update existing styles to account for clickable card */
+.propertyCard {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+  cursor: pointer; /* Show it's clickable */
+}
+
+.propertyCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
