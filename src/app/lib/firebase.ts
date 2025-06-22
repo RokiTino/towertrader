@@ -11,7 +11,7 @@ const firebaseConfig = {
   projectId: "towertrader-56483",
   storageBucket: "towertrader-56483.firebasestorage.app",
   messagingSenderId: "253066400729",
-  appId: "1:253066400729:web:585e5afd4098f88a823fc8"
+  appId: "1:253066400729:web:19c58919a6e5b464823fc8"
 };
 
 // Initialize Firebase
