@@ -1,9 +1,12 @@
+'use client'
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../styles/Header.module.css';
 import TowerTrade from '../../../public/images/TowerTrade.png';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
+  const router = useRouter();
   return (
     <header className={styles.header}>
       <div className={styles.logoContainer}>
@@ -13,6 +16,7 @@ export default function Header() {
           width={100} 
           height={50}
           priority
+          onClick={() => {router.push("/")}}
         />
       </div>
       <nav>
