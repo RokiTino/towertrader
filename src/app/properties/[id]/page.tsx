@@ -91,13 +91,13 @@ function ProgressBar({ value, max }: { value: number, max: number }) {
     <div style={{ margin: '16px 0' }}>
       <div style={{ background: '#eee', borderRadius: 4, height: 20, width: '100%', position: 'relative' }}>
         <div style={{
-          background: 'linear-gradient(90deg, #2196f3, #21cbf3)', width: `${percent}%`,
+          background: 'linear-gradient(90deg, #ac8144, #ac8144)', width: `${percent}%`,
           height: '100%', borderRadius: 4, transition: 'width 0.3s'
         }} />
         <span style={{
           position: 'absolute', left: '50%', top: 0, transform: 'translateX(-50%)',
           color: '#222', fontWeight: 'bold', fontSize: 14, lineHeight: '20px'
-        }}>{value} / {max}</span>
+        }}>{value}% / {max}%</span>
       </div>
     </div>
   );
