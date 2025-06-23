@@ -93,17 +93,20 @@ export default function PropertyPage({ params }: Props) {
   if (!property) return <div>Loading...</div>;
 
   return (
-    <main style={{ maxWidth: 600, margin: '0 auto', padding: 16 }}>
-      <ImageCarousel images={property.images} />
-      <h1 style={{ marginTop: 24, marginBottom: 8 }}>{property.name}</h1>
-      <ProgressBar value={property.progress} max={property.progressMax} />
-      <div style={{ marginTop: 16 }}>
-        <h3>GPS Location</h3>
-        <p>
-          Latitude: <b>{property.gps.lat}</b><br />
-          Longitude: <b>{property.gps.lng}</b>
-        </p>
-      </div>
-    </main>
+    <div className={styles.container}>
+      <Header />
+      <main style={{ maxWidth: 600, margin: '0 auto', padding: 16 }}>
+        <ImageCarousel images={property.images} />
+        <h1 style={{ marginTop: 24, marginBottom: 8 }}>{property.name}</h1>
+        <ProgressBar value={property.progress} max={property.progressMax} />
+        <div style={{ marginTop: 16 }}>
+          <h3>GPS Location</h3>
+          <p>
+            Latitude: <b>{property.gps.lat}</b><br />
+            Longitude: <b>{property.gps.lng}</b>
+          </p>
+        </div>
+      </main>
+    </div>
   );
 }
