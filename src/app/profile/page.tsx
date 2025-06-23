@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { onAuthStateChanged } from "firebase/auth"
-
-// Replace Firebase initialization with import from centralized file
 import { auth } from "../lib/firebase"
+import "../styles/ProfilePage.css" // Assuming you have a CSS file for styling
+import Header from "../components/Header"
 
 export default function ProfilePage() {
   const [user, setUser] = useState<any>(null)
@@ -15,7 +15,6 @@ export default function ProfilePage() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        // User is signed in
         setUser({
           uid: currentUser.uid,
           email: currentUser.email,
@@ -26,7 +25,6 @@ export default function ProfilePage() {
           lastSignInTime: currentUser.metadata.lastSignInTime,
         })
       } else {
-        // No user is signed in, redirect to login
         router.push("/")
       }
       setLoading(false)
@@ -44,89 +42,111 @@ export default function ProfilePage() {
     }
   }
 
+  const navigateToPaymentMethods = () => {
+    router.push("/paymentMethods")
+  }
+
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
       </div>
     )
   }
 
   if (!user) {
-    return null // This should not happen as we redirect in the useEffect
+    return null
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-        <div className="md:flex">
-          <div className="p-8 w-full">
-            <div className="flex justify-between items-center mb-6">
-              <h1 className="text-2xl font-bold text-black">User Profile</h1>
-              <button
-                onClick={handleSignOut}
-                className="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-              >
-                Sign Out
-              </button>
-            </div>
+    <div className="profile-container">
+        <Header />
+      <div className="profile-content">
+        {/* Header Section */}
+        <div className="profile-header">
+          <h1 className="profile-title">My Account</h1>
+          <button
+            onClick={handleSignOut}
+            className="profile-button"
+          >
+            Sign Out
+          </button>
+        </div>
 
-            <div className="space-y-4">
-              <div className="flex items-center justify-center mb-6">
-                {user.photoURL ? (
-                  <img src={user.photoURL || "/placeholder.svg"} alt="Profile" className="h-24 w-24 rounded-full" />
-                ) : (
-                  <div className="h-24 w-24 rounded-full bg-indigo-100 flex items-center justify-center">
-                    <span className="text-2xl font-medium text-indigo-800">
-                      {user.email?.charAt(0).toUpperCase() || "U"}
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              <div className="border-t border-gray-200 pt-4">
-                <dl className="divide-y divide-gray-200">
-                  <div className="py-3 flex justify-between">
-                    <dt className="text-sm font-medium text-gray-500">Email</dt>
-                    <dd className="text-sm text-gray-900">{user.email}</dd>
-                  </div>
-
-                  <div className="py-3 flex justify-between">
-                    <dt className="text-sm font-medium text-gray-500">User ID</dt>
-                    <dd className="text-sm text-black">{user.uid}</dd>
-                  </div>
-
-                  <div className="py-3 flex justify-between">
-                    <dt className="text-sm font-medium text-gray-500">Email Verified</dt>
-                    <dd className="text-sm text-gray-900">
-                      {user.emailVerified ? (
-                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                          Verified
-                        </span>
-                      ) : (
-                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                          Not Verified
-                        </span>
-                      )}
-                    </dd>
-                  </div>
-
-                  <div className="py-3 flex justify-between">
-                    <dt className="text-sm font-medium text-gray-500">Account Created</dt>
-                    <dd className="text-sm text-gray-900">
-                      {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : "N/A"}
-                    </dd>
-                  </div>
-
-                  <div className="py-3 flex justify-between">
-                    <dt className="text-sm font-medium text-gray-500">Last Sign In</dt>
-                    <dd className="text-sm text-gray-900">
-                      {user.lastSignInTime ? new Date(user.lastSignInTime).toLocaleDateString() : "N/A"}
-                    </dd>
-                  </div>
-                </dl>
+        {/* Profile Card */}
+        <div className="profile-card">
+          <div className="profile-card-content">
+            <div className="profile-info">
+              {user.photoURL ? (
+                <img 
+                  src={user.photoURL} 
+                  alt="Profile" 
+                  className="profile-avatar"
+                />
+              ) : (
+                <div className="profile-avatar-placeholder">
+                  {user.email?.charAt(0).toUpperCase() || "U"}
+                </div>
+              )}
+              <div className="profile-details">
+                <h2 className="profile-name">{user.displayName}</h2>
+                <p className="profile-email">{user.email}</p>
+                <div className={`profile-verified ${user.emailVerified ? 'true' : 'false'}`}>
+                  {user.emailVerified ? 'Verified' : 'Not Verified'}
+                </div>
               </div>
             </div>
+
+            <div className="profile-grid">
+              <div className="profile-section">
+                <h3 className="profile-section-title">Account Details</h3>
+                <div className="profile-field">
+                  <span className="profile-field-label">Member Since</span>
+                  <span className="profile-field-value">
+                    {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : "N/A"}
+                  </span>
+                </div>
+                <div className="profile-field">
+                  <span className="profile-field-label">Last Sign In</span>
+                  <span className="profile-field-value">
+                    {user.lastSignInTime ? new Date(user.lastSignInTime).toLocaleDateString() : "N/A"}
+                  </span>
+                </div>
+              </div>
+
+              <div className="profile-section">
+                <h3 className="profile-section-title">Payment Methods</h3>
+                <div className="profile-payment-card">
+                  <p className="profile-payment-text">No payment methods added</p>
+                  <button
+                    onClick={navigateToPaymentMethods}
+                    className="profile-button"
+                    style={{ width: '100%' }}
+                  >
+                    Add Payment Method
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Additional Sections */}
+        <div className="profile-features">
+          <div className="profile-feature-card">
+            <h3 className="profile-feature-title">Order History</h3>
+            <p className="profile-feature-description">View your past orders and invoices</p>
+            <a href="#" className="profile-link">View History</a>
+          </div>
+          <div className="profile-feature-card">
+            <h3 className="profile-feature-title">Settings</h3>
+            <p className="profile-feature-description">Update your account preferences</p>
+            <a href="#" className="profile-link">Go to Settings</a>
+          </div>
+          <div className="profile-feature-card">
+            <h3 className="profile-feature-title">Help Center</h3>
+            <p className="profile-feature-description">Get help with your account</p>
+            <a href="#" className="profile-link">Contact Support</a>
           </div>
         </div>
       </div>

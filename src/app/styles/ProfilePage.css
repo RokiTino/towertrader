@@ -1,0 +1,254 @@
+.profile-container {
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.profile-content {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+  padding: 16px;
+}
+
+.profile-button {
+  padding: 8px 24px;
+  background-color: #ac8144;
+  color: white;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.profile-button:hover {
+  background-color: #9a723a;
+}
+
+.profile-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.profile-card-content {
+  padding: 24px;
+}
+
+@media (min-width: 768px) {
+  .profile-card-content {
+    padding: 32px;
+  }
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .profile-info {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.profile-avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #f0f0f0;
+}
+
+.profile-avatar-placeholder {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #f0f0f0;
+  color: #ac8144;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.profile-details {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .profile-details {
+    text-align: left;
+  }
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.profile-email {
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.profile-verified {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 9999px;
+}
+
+.profile-verified.true {
+  background-color: #e6ffed;
+  color: #22863a;
+}
+
+.profile-verified.false {
+  background-color: #fff8c5;
+  color: #735c0f;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .profile-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.profile-section {
+  margin-bottom: 16px;
+}
+
+.profile-section-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 16px;
+}
+
+.profile-field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.profile-field-label {
+  color: #666;
+}
+
+.profile-field-value {
+  color: #000;
+}
+
+.profile-payment-card {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+}
+
+.profile-payment-text {
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.profile-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .profile-features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.profile-feature-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  padding: 16px;
+  transition: box-shadow 0.2s;
+}
+
+.profile-feature-card:hover {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.profile-feature-title {
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.profile-feature-description {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.profile-link {
+  color: #ac8144;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.profile-link:hover {
+  text-decoration: underline;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(172, 129, 68, 0.2);
+  border-top: 4px solid #ac8144;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
