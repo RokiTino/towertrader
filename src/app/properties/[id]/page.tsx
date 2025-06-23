@@ -1,63 +1,63 @@
 'use client';
-import { useEffect, useState } from 'react';
-import Header from '../components/Header'; // Make sure the path is correct
-import styles from '../../styles/Home.module.css'; // Or another suitable container style
-
+import { useEffect, useState, use } from 'react';
+import styles from '../../styles/Home.module.css';
+import Header from '../../components/Header';
+import UrbanLoft from '../../../../public/images/UrbanLoft.jpg';
+import BeachFrontVilla from '../../../../public/images/BeachFrontVilla.jpg'
+import NoImage from '../../../../public/images/download.png'
 type Property = {
   id: string;
-  images: string[];
-  name: string;
-  progress: number;
-  progressMax: number;
-  gps: { lat: number; lng: number };
+  title: string;
+  price: string;
+  imageUrl: any;
+  progress?: number;
+  progressMax?: number;
+  gps?: { lat: number; lng: number };
 };
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
-// Dummy fetch function (replace with your actual API call)
 async function fetchPropertyById(id: string): Promise<Property> {
-  const dummy: Record<string, Property> = {
+  const properties: Record<string, Property> = {
     '1': {
       id: '1',
-      images: [
-        'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80',
-      ],
-      name: 'Skyline Residence',
+      title: 'Urban Loft',
+      price: '2.000.000$',
+      imageUrl: UrbanLoft,
       progress: 40,
       progressMax: 100,
-      gps: { lat: 40.7128, lng: -74.006 },
+      gps: { lat: 40.7128, lng: -74.006 }
     },
     '2': {
       id: '2',
-      images: [
-        'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1465101178521-c1a9136a3a1a?auto=format&fit=crop&w=800&q=80',
-      ],
-      name: 'Seaside Villa',
+      title: 'Beach Front Villa',
+      price: '1.500.000$',
+      imageUrl: BeachFrontVilla,
       progress: 75,
       progressMax: 100,
-      gps: { lat: 34.0522, lng: -118.2437 },
+      gps: { lat: 34.0522, lng: -118.2437 }
     },
     '3': {
       id: '3',
-      images: [
-        'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80',
-      ],
-      name: 'Mountain Cabin',
+      title: 'City Penthouse',
+      price: '3.200.000$',
+      imageUrl: NoImage,
       progress: 20,
       progressMax: 60,
-      gps: { lat: 51.5074, lng: -0.1278 },
-    },
+      gps: { lat: 51.5074, lng: -0.1278 }
+    }
   };
-  return dummy[id] || dummy['1'];
+  return properties[id] || {
+    id: '0',
+    title: 'Not Found',
+    price: '0$',
+    imageUrl: NoImage
+  };
 }
 
-// Simple Image Carousel and ProgressBar components as before
-function ImageCarousel({ images }: { images: string[] }) {
+function ImageCarousel({ images }: { images: any[] }) {
   const [idx, setIdx] = useState(0);
   if (!images || images.length === 0) return null;
 
@@ -105,27 +105,38 @@ function ProgressBar({ value, max }: { value: number, max: number }) {
 
 export default function PropertyPage({ params }: Props) {
   const [property, setProperty] = useState<Property | null>(null);
+  const [loading, setLoading] = useState(true);
+  const { id } = use(params);
 
   useEffect(() => {
-    fetchPropertyById(params.id).then(setProperty);
-  }, [params.id]);
+    setLoading(true);
+    fetchPropertyById(id)
+      .then(setProperty)
+      .finally(() => setLoading(false));
+  }, [id]);
 
-  if (!property) return <div>Loading...</div>;
+  if (loading) return <div>Loading...</div>;
+  if (!property) return <div>Property not found</div>;
 
   return (
     <div className={styles.container}>
       <Header />
       <main style={{ maxWidth: 600, margin: '0 auto', padding: 16 }}>
-        <ImageCarousel images={property.images} />
-        <h1 style={{ marginTop: 24, marginBottom: 8 }}>{property.name}</h1>
-        <ProgressBar value={property.progress} max={property.progressMax} />
-        <div style={{ marginTop: 16 }}>
-          <h3>GPS Location</h3>
-          <p>
-            Latitude: <b>{property.gps.lat}</b><br />
-            Longitude: <b>{property.gps.lng}</b>
-          </p>
-        </div>
+        <ImageCarousel images={[property.imageUrl]} />
+        <h1 style={{ marginTop: 24, marginBottom: 8 }}>{property.title}</h1>
+        <h2 style={{ marginBottom: 16 }}>{property.price}</h2>
+        {property.progress && property.progressMax && (
+          <ProgressBar value={property.progress} max={property.progressMax} />
+        )}
+        {property.gps && (
+          <div style={{ marginTop: 16 }}>
+            <h3>GPS Location</h3>
+            <p>
+              Latitude: <b>{property.gps.lat}</b><br />
+              Longitude: <b>{property.gps.lng}</b>
+            </p>
+          </div>
+        )}
       </main>
     </div>
   );
