@@ -1,6 +1,7 @@
-// app/properties/[id]/page.tsx
 'use client';
 import { useEffect, useState } from 'react';
+import Header from '../components/Header'; // Make sure the path is correct
+import styles from '../../styles/Home.module.css'; // Or another suitable container style
 
 type Property = {
   id: string;
@@ -17,7 +18,6 @@ type Props = {
 
 // Dummy fetch function (replace with your actual API call)
 async function fetchPropertyById(id: string): Promise<Property> {
-  // Replace this with a real API call!
   const dummy: Record<string, Property> = {
     '1': {
       id: '1',
@@ -31,13 +31,32 @@ async function fetchPropertyById(id: string): Promise<Property> {
       progressMax: 100,
       gps: { lat: 40.7128, lng: -74.006 },
     },
-    // ...other dummy properties
+    '2': {
+      id: '2',
+      images: [
+        'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1465101178521-c1a9136a3a1a?auto=format&fit=crop&w=800&q=80',
+      ],
+      name: 'Seaside Villa',
+      progress: 75,
+      progressMax: 100,
+      gps: { lat: 34.0522, lng: -118.2437 },
+    },
+    '3': {
+      id: '3',
+      images: [
+        'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80',
+      ],
+      name: 'Mountain Cabin',
+      progress: 20,
+      progressMax: 60,
+      gps: { lat: 51.5074, lng: -0.1278 },
+    },
   };
   return dummy[id] || dummy['1'];
 }
 
-// Simple Carousel and Progress bar components go here (same as previous answer)
-
+// Simple Image Carousel and ProgressBar components as before
 function ImageCarousel({ images }: { images: string[] }) {
   const [idx, setIdx] = useState(0);
   if (!images || images.length === 0) return null;
@@ -94,17 +113,20 @@ export default function PropertyPage({ params }: Props) {
   if (!property) return <div>Loading...</div>;
 
   return (
-    <main style={{ maxWidth: 600, margin: '0 auto', padding: 16 }}>
-      <ImageCarousel images={property.images} />
-      <h1 style={{ marginTop: 24, marginBottom: 8 }}>{property.name}</h1>
-      <ProgressBar value={property.progress} max={property.progressMax} />
-      <div style={{ marginTop: 16 }}>
-        <h3>GPS Location</h3>
-        <p>
-          Latitude: <b>{property.gps.lat}</b><br />
-          Longitude: <b>{property.gps.lng}</b>
-        </p>
-      </div>
-    </main>
+    <div className={styles.container}>
+      <Header />
+      <main style={{ maxWidth: 600, margin: '0 auto', padding: 16 }}>
+        <ImageCarousel images={property.images} />
+        <h1 style={{ marginTop: 24, marginBottom: 8 }}>{property.name}</h1>
+        <ProgressBar value={property.progress} max={property.progressMax} />
+        <div style={{ marginTop: 16 }}>
+          <h3>GPS Location</h3>
+          <p>
+            Latitude: <b>{property.gps.lat}</b><br />
+            Longitude: <b>{property.gps.lng}</b>
+          </p>
+        </div>
+      </main>
+    </div>
   );
 }
