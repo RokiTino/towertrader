@@ -67,7 +67,7 @@ async function fetchPropertyById(id: string): Promise<Property> {
       title: 'Urban Loft',
       price: '2,000,000$',
       imageUrl: UrbanLoft,
-      images: [UrbanLoft, BeachFrontVilla, NoImage],
+      images: [UrbanLoft.src, BeachFrontVilla.src, NoImage.src],
       progress: 40,
       progressMax: 100,
       gps: { lat: 40.7128, lng: -74.006 },
@@ -82,7 +82,7 @@ async function fetchPropertyById(id: string): Promise<Property> {
       title: 'Beach Front Villa',
       price: '1,500,000$',
       imageUrl: BeachFrontVilla,
-      images: [BeachFrontVilla, UrbanLoft, NoImage],
+      images: [BeachFrontVilla.src, UrbanLoft.src, NoImage.src],
       progress: 75,
       progressMax: 100,
       gps: { lat: 34.0522, lng: -118.2437 },
@@ -97,7 +97,7 @@ async function fetchPropertyById(id: string): Promise<Property> {
       title: 'City Penthouse',
       price: '3,200,000$',
       imageUrl: NoImage,
-      images: [NoImage, BeachFrontVilla, UrbanLoft],
+      images: [NoImage.src, BeachFrontVilla.src, UrbanLoft.src],
       progress: 20,
       progressMax: 60,
       gps: { lat: 51.5074, lng: -0.1278 },
@@ -133,16 +133,16 @@ function ImageCarousel({ images }: { images: string[] }) {
     <Box sx={{ 
       position: 'relative', 
       width: '100%', 
-      height: 400, 
+      height: '30%', 
       borderRadius: 2, 
-      overflow: 'hidden',
+      overflow: 'clip',
       boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)'
     }}>
       <CardMedia
         component="img"
         image={images[currentIndex]}
         alt="Property image"
-        sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        sx={{ width: '100%', height: '100%', objectFit: 'fit' }}
       />
       
       {images.length > 1 && (
