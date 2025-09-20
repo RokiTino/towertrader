@@ -1,0 +1,125 @@
+.container {
+  max-width: 650px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.backButton {
+  background-color: #ac8144;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.backButton:hover {
+  background-color: #9a723a;
+}
+
+.title {
+  flex-grow: 1;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldLabel {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.input,
+.textarea,
+.inputFile {
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus,
+.inputFile:focus {
+  border-color: #0070f3;
+  box-shadow: 0 0 0 3px rgba(0, 118, 255, 0.15);
+  outline: none;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.imagePreview {
+  margin-top: 0.75rem;
+  max-width: 100%;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.submitButton {
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.1s ease;
+  background-color: #ac8144;
+}
+
+.submitButton:hover {
+  background-color: #9a723a;
+  transform: translateY(-2px);
+}
+.customSelect {
+  appearance: none; /* remove default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.customSelect:focus {
+  border-color: #ac8144;
+  box-shadow: 0 0 0 3px rgba(0, 118, 255, 0.15);
+  outline: none;
+}
