@@ -130,11 +130,11 @@ function ImageCarousel({ images }: { images: string[] }) {
   };
 
   return (
-    <Box sx={{ 
-      position: 'relative', 
-      width: '100%', 
-      height: '30%', 
-      borderRadius: 2, 
+    <Box sx={{
+      position: 'relative',
+      width: '100%',
+      height: '30%',
+      borderRadius: 2,
       overflow: 'clip',
       boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)'
     }}>
@@ -144,7 +144,7 @@ function ImageCarousel({ images }: { images: string[] }) {
         alt="Property image"
         sx={{ width: '100%', height: '100%', objectFit: 'fit' }}
       />
-      
+
       {images.length > 1 && (
         <>
           <IconButton
@@ -163,7 +163,7 @@ function ImageCarousel({ images }: { images: string[] }) {
           >
             <ArrowBack />
           </IconButton>
-          
+
           <IconButton
             onClick={handleNext}
             sx={{
@@ -180,15 +180,15 @@ function ImageCarousel({ images }: { images: string[] }) {
           >
             <ArrowForward />
           </IconButton>
-          
-          <Box sx={{ 
-            position: 'absolute', 
-            bottom: 16, 
-            left: 0, 
-            right: 0, 
-            display: 'flex', 
-            justifyContent: 'center', 
-            gap: 1 
+
+          <Box sx={{
+            position: 'absolute',
+            bottom: 16,
+            left: 0,
+            right: 0,
+            display: 'flex',
+            justifyContent: 'center',
+            gap: 1
           }}>
             {images.map((_, index) => (
               <Box
@@ -212,18 +212,18 @@ function ImageCarousel({ images }: { images: string[] }) {
 
 function ProgressBar({ value, max }: { value: number; max: number }) {
   const percentage = Math.round((value / max) * 100);
-  
+
   return (
     <Box sx={{ my: 3 }}>
       <Typography variant="h6" gutterBottom sx={{ color: customColors.textPrimary }}>
         Investment Progress
       </Typography>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Box sx={{ 
-          width: '100%', 
-          bgcolor: customColors.lightBackground, 
-          borderRadius: 4, 
-          height: 10 
+        <Box sx={{
+          width: '100%',
+          bgcolor: customColors.lightBackground,
+          borderRadius: 4,
+          height: 10
         }}>
           <Box
             sx={{
@@ -257,10 +257,10 @@ export default function PropertyPage({ params }: Props) {
 
   if (loading) {
     return (
-      <Box sx={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
+      <Box sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         height: '100vh',
         bgcolor: customColors.background
       }}>
@@ -271,10 +271,10 @@ export default function PropertyPage({ params }: Props) {
 
   if (!property) {
     return (
-      <Box sx={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
+      <Box sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         height: '100vh',
         bgcolor: customColors.background
       }}>
@@ -288,14 +288,14 @@ export default function PropertyPage({ params }: Props) {
   return (
     <Box sx={{ bgcolor: customColors.background }}>
       <Header />
-      
+
       <Container maxWidth="lg" sx={{ py: 4 }}>
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 3 }}>
           <Link href="/add-listing" passHref>
-            <Button 
-              variant="contained" 
-              sx={{ 
-                textTransform: 'none', 
+            <Button
+              variant="contained"
+              sx={{
+                textTransform: 'none',
                 fontWeight: 'bold',
                 bgcolor: customColors.primary,
                 '&:hover': {
@@ -308,8 +308,8 @@ export default function PropertyPage({ params }: Props) {
             </Button>
           </Link>
         </Box>
-        
-        <Card sx={{ 
+
+        <Card sx={{
           mb: 4,
           bgcolor: customColors.background,
           boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
@@ -319,29 +319,29 @@ export default function PropertyPage({ params }: Props) {
             <Typography variant="h4" component="h1" gutterBottom sx={{ color: customColors.textPrimary }}>
               {property.title}
             </Typography>
-            
-            <Box sx={{ 
-              display: 'flex', 
-              justifyContent: 'space-between', 
-              alignItems: 'center', 
-              mb: 3 
+
+            <Box sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: 3
             }}>
               <Typography variant="h5" sx={{ color: customColors.primary }}>
                 {property.price}
               </Typography>
-              <Chip 
-                icon={<LocationOn sx={{ color: customColors.textTertiary }} />} 
-                label={property.location} 
-                variant="outlined" 
-                sx={{ 
+              <Chip
+                icon={<LocationOn sx={{ color: customColors.textTertiary }} />}
+                label={property.location}
+                variant="outlined"
+                sx={{
                   color: customColors.textSecondary,
                   borderColor: customColors.divider
                 }}
               />
             </Box>
-            
+
             <ImageCarousel images={property.images || [property.imageUrl]} />
-            
+
             <Grid container spacing={3} sx={{ my: 2 }}>
               <Grid item xs={4}>
                 <Stack direction="row" alignItems="center" spacing={1}>
@@ -368,38 +368,38 @@ export default function PropertyPage({ params }: Props) {
                 </Stack>
               </Grid>
             </Grid>
-            
-            <Divider sx={{ 
+
+            <Divider sx={{
               my: 3,
               bgcolor: customColors.divider
             }} />
-            
+
             <Typography variant="h6" gutterBottom sx={{ color: customColors.textPrimary }}>
               Description
             </Typography>
-            <Typography variant="body1" paragraph sx={{ 
+            <Typography variant="body1" paragraph sx={{
               whiteSpace: 'pre-line',
               color: customColors.textSecondary
             }}>
               {property.description}
             </Typography>
-            
+
             {property.progress !== undefined && property.progressMax !== undefined && (
               <ProgressBar value={property.progress} max={property.progressMax} />
             )}
-            
+
             {property.gps && (
               <Box sx={{ mt: 4 }}>
                 <Typography variant="h6" gutterBottom sx={{ color: customColors.textPrimary }}>
                   Location
                 </Typography>
-                <Box 
-                  sx={{ 
-                    height: 300, 
-                    bgcolor: customColors.lightBackground, 
-                    borderRadius: 2, 
-                    display: 'flex', 
-                    alignItems: 'center', 
+                <Box
+                  sx={{
+                    height: 300,
+                    bgcolor: customColors.lightBackground,
+                    borderRadius: 2,
+                    display: 'flex',
+                    alignItems: 'center',
                     justifyContent: 'center',
                     border: '1px solid',
                     borderColor: customColors.divider
@@ -411,14 +411,14 @@ export default function PropertyPage({ params }: Props) {
                 </Box>
               </Box>
             )}
-            
+
             <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
-              <Button 
-                variant="contained" 
+              <Button
+                variant="contained"
                 size="large"
                 fullWidth
-                sx={{ 
-                  py: 1.5, 
+                sx={{
+                  py: 1.5,
                   fontWeight: 'bold',
                   bgcolor: customColors.primary,
                   '&:hover': {

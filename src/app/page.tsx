@@ -7,12 +7,21 @@ import { auth } from "../app/lib/firebase"; // import your initialized Firebase 
 import styles from "../app/styles/Home.module.css";
 import Header from "./components/Header";
 import PropertyCard from "./components/PropertCard";
-import UrbanLoft from "../../public/images/UrbanLoft.jpg";
-import BeachFrontVilla from "../../public/images/BeachFrontVilla.jpg";
 import NoImage from "../../public/images/download.png";
+
+// Define the property type based on your backend
+interface Property {
+  id: string;
+  title: string;
+  price: string;
+  imageUrl?: string;
+}
 
 export default function Home() {
   const [user, setUser] = useState<User | null>(null);
+  const [properties, setProperties] = useState<Property[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -21,17 +30,40 @@ export default function Home() {
     return () => unsubscribe();
   }, []);
 
-  const properties = [
-    { id: "1", title: "Urban Loft", price: "2.000.000$", imageUrl: UrbanLoft },
-    { id: "2", title: "Beach Front Villa", price: "1.500.000$", imageUrl: BeachFrontVilla },
-    { id: "3", title: "City Penthouse", price: "3.200.000$", imageUrl: NoImage },
-  ];
+  useEffect(() => {
+    // Fetch properties from Spring Boot backend
+    const fetchProperties = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch("http://localhost:8080/api/properties");
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log('data', data)
+        setProperties(data);
+        setError(null);
+      } catch (err) {
+        console.error("Error fetching properties:", err);
+        setError("Failed to load properties. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProperties();
+  }, []);
 
   return (
     <div className={styles.container}>
       <Header />
       <main className={styles.main}>
         <h1 className={styles.title}>Find your next investment</h1>
+        {loading && <p>Loading properties...</p>}
+        {error && <p className={styles.error}>{error}</p>}
+        
         <div className={styles.propertyGrid}>
           {properties.map((property) => (
             <PropertyCard
@@ -39,7 +71,7 @@ export default function Home() {
               id={property.id}
               title={property.title}
               price={property.price}
-              imageUrl={property.imageUrl}
+              imageUrl={property.imageUrl || NoImage}
             />
           ))}
         </div>
